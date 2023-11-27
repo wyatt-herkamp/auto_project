@@ -1,10 +1,8 @@
-use std::{ffi::CString, path::Path, path::PathBuf, sync::Once};
+use std::{ffi::CString, iter::once, path::Path, sync::Once};
 
-use crate::{Config, Project};
 use anyhow::{anyhow, Context};
 use directories::BaseDirs;
 use log::debug;
-use std::iter::once;
 use windows::{
     core::{ComInterface, PCSTR, PCWSTR},
     Win32::{
@@ -16,6 +14,8 @@ use windows::{
         UI::{Shell::*, WindowsAndMessaging::SW_HIDE},
     },
 };
+
+use crate::{Config, Project};
 pub fn update_shortcuts(
     base: BaseDirs,
     projects: Vec<Project>,

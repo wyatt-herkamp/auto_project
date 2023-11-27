@@ -1,8 +1,9 @@
+use std::path::PathBuf;
+
 use clap::ValueEnum;
 use log::debug;
 use serde::{Deserialize, Serialize};
 use strum::AsRefStr;
-use std::path::PathBuf;
 #[cfg(target_os = "windows")]
 fn default_vs_code_path() -> PathBuf {
     which::which("code").unwrap_or_else(|e| {

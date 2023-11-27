@@ -1,13 +1,14 @@
 use std::{env::current_dir, path::PathBuf};
 
+use anyhow::Context;
+use clap::{Args, Parser, Subcommand};
+use log::info;
+
 use crate::{
     config::{IconStyle, Project, ProjectLocation},
     utils::GetConfig,
     AppState,
 };
-use anyhow::Context;
-use clap::{Args, Parser, Subcommand};
-use log::info;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]

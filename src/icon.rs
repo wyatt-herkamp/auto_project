@@ -14,7 +14,6 @@ struct Icons;
 #[folder = "$CARGO_MANIFEST_DIR/fonts"]
 struct Fonts;
 
-
 pub fn build_icon(style: IconStyle, name: &str, app_state: &AppState) -> anyhow::Result<PathBuf> {
     if !app_state.project_dirs.cache_dir().exists() {
         std::fs::create_dir_all(app_state.project_dirs.cache_dir())?;
@@ -94,7 +93,7 @@ mod ico {
     }
 
     fn rasterize(svg: &usvg::Tree, height_in_pixels: u32) -> Result<tiny_skia::Pixmap> {
-        let target_size = usvg::Size::from_wh(height_in_pixels as f32, height_in_pixels as f32)
+        let _target_size = usvg::Size::from_wh(height_in_pixels as f32, height_in_pixels as f32)
             .context("Unsigned values should always be valid")?;
 
         let pixmap_size =
@@ -127,9 +126,8 @@ mod ico {
 mod tests {
     use std::path::PathBuf;
 
-    use anyhow::Context;
     use rust_embed::RustEmbed;
-    use usvg::fontdb::{Database, Family, Weight};
+    use usvg::fontdb::{Family, Weight};
 
     use super::Icons;
 

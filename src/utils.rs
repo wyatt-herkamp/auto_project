@@ -47,7 +47,6 @@ pub trait GetConfig {
         }
         Ok(())
     }
-
 }
 
 impl GetConfig for ProjectDirs {
